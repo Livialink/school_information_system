@@ -7,15 +7,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     status: {
       allowNull : false,
-      type :DataTypes.BOOLEAN
+      type :DataTypes.BOOLEAN,
+      defaultValue : false
     },
     releaseDate:{
       allowNull : false,
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
+      defaultValue : new Date()
     },
     publishDate: {
       allowNull : false,
-      type : DataTypes.DATE
+      type : DataTypes.DATE,
+      defaultValue : new Date()
     },
     semester: {
       allowNull : false,
@@ -30,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Result.associate = function(models){
     Result.belongsTo(models.Student);
+    Result.belongsTo(models.Course);
   }
   return Result;
 };

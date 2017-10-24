@@ -16,7 +16,7 @@ module.exports = {
 
       model.Student.findById(1).then(function(std){
         model.Course.findById(1).then(function(cour){
-          std.setCourse(cour);
+          //  std.addCourse(cour);
         })
         /*
         model.Course.findById(2).then(function(cour1){

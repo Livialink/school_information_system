@@ -10,7 +10,8 @@ const express = require('express'),
 //Routes
 const authR = require('./routes/auth'),
       studentR = require('./routes/student'),
-      userR = require('./routes/user');
+      userR = require('./routes/user'),
+      resultR = require('./routes/result');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/token',authR);
 app.use('/api/student',authorize.authorizeAdm,studentR);
 app.use('/api/user',authorize.authorizeUser,userR);
+app.use('/api/result',authorize.authorizeUser,resultR);
 
 app.use('*',(req,res)=>{
   res.sendFile(path.join(__dirname + '/api_client/index.html'));
@@ -58,6 +60,6 @@ app.use(function(err, req, res, next) {
 });
 
 //uncomment for the initial migration
-  //model.sequelize.sync({force : true});
+//model.sequelize.sync({force : true});
 
 module.exports = app;

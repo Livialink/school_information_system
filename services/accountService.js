@@ -55,8 +55,9 @@ let passportauth = {
                         exp : Math.floor(new Date()/1000) + (60*60),
                         role : user.role },cfg.jwtSecret);
                     res.json({token : token});
-                }
+                }else{
                 res.status(401).send({message : 'Invalid credentials'});
+                }
             });
         }else{
             res.status(401).send({message : 'Invalid credentials'});
@@ -79,6 +80,7 @@ let passportauth = {
         }
     }
 };
+//passportauth.initialize();
 exports.authenticatepwduser = passportauth.authenticatepwduser;
 
 exports.authorizeAdm = [passportauth.authenticate(),passportauth.authorizeAdmin];

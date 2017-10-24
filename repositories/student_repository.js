@@ -63,14 +63,16 @@ let StudentRepository = function(){
                 callback(null,std);
             }).catch(err => callback(err,false))
         }).catch(err => callback(err,false));
-    }
+    };
+
+    
 
     return {
         get : get,
         save : save,
         remove : remove,
         list : list,
-        update : update
+        update : update,
     }
 
 }
