@@ -35,5 +35,14 @@ router.route('/getDept').get(function(req,res){
         res.json(data);
     })
 })
-
+router.route('/getCos').get(function(req,res){
+    school.getCourses(function(data){
+        res.json(data);
+    })
+});
+router.route('/getCosByDept/:deptId').get(function(req,res){
+    school.getCoursesByDeptId(req.params.deptId,function(data){
+        res.json(data);
+    })
+})
 module.exports = router;

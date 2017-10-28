@@ -12,7 +12,7 @@ const cfg = require("../config.js");
 passport.use(new JWTStrategy({  
     secretOrKey: cfg.jwtSecret,
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    ignoreExpiration : false
+    ignoreExpiration : true
 }, function(payload, done) {
        passportauth.jwtStrategyFnParam(payload,done);
  }));

@@ -7,7 +7,7 @@ const express = require('express'),
 
 router.route('/')
 .get(function(req,res){
-    school.listResult(1,function(data){
+    school.listResult(req.query.cosId,function(data){
         res.json(data);
     })
 })

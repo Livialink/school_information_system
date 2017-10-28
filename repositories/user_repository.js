@@ -11,6 +11,12 @@ let UserRepository = function(){
         }).catch(err => callback(err,false));
     };
 
+    let getRoleId = function(name,callback){
+        model.Role.findOne({where : { name : name}}).then(role=>{
+            callback(null,role.id);
+        }).catch(err => callback(err,false));
+    };
+
     let activateUser = function(userId,callback){
         model.User.findById(userId).then(user =>{
             user.status = true;
@@ -68,7 +74,8 @@ let UserRepository = function(){
         getFaculties : getFaculties,
         getDepartment : getDepartment,
         activateUser : activateUser,
-        getAdmins : getAdmins
+        getAdmins : getAdmins,
+        getRoleId : getRoleId
     }
 }
 

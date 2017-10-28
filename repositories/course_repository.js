@@ -12,6 +12,19 @@ let course_repository =  function(){
             callback(null,cos);
         }).catch(err => callback(err,false));
     };
+    let getCoursesByDeptId = function(deptId,callback){
+        //callback(null,{course:'flsdjflsj'});
+        
+        model.Course.findAll({where : { DepartmentId : deptId}})
+        .then(cos => callback(null,cos))
+        .catch(err => callback(err,false));
+    }
+
+    let getCourses = function(callback){
+        model.Course.findAll()
+        .then(cos => callback(null,cos))
+        .catch(err => callback(err,false));
+    };
 
     let getByCode = function(code,callback){
         model.Course.findOne({where : { courseCode : code}})
@@ -59,7 +72,9 @@ let course_repository =  function(){
         getByCode : getByCode,
         add : add,
         enroll : enroll,
-        enrollments :enrollments
+        getCourses : getCourses,
+        enrollments :enrollments,
+        getCoursesByDeptId: getCoursesByDeptId
     }
 };
 

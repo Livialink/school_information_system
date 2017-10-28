@@ -22,6 +22,13 @@ module.exports = {
           description : 'software developers',
           FacultyId : fac.id
       })}),
+        model.Faculty.findOne({where : {name : 'Physical Sciences'}}).then(fac =>{
+        model.Department.create({
+          name : 'Mathematics',
+          deptCode : 'mat',
+          description : 'The resolvers',
+          FacultyId : fac.id
+      })})
     ])
     
   },

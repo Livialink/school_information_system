@@ -22,6 +22,26 @@ const School = {
         })
     },
 
+    getCourses : function(callback){
+        repo.course.getCourses(function(err,data){
+            if(err === null && data !== false){
+                callback(data);
+            }else{
+                callback(err);
+            }
+        })
+    },
+    getCoursesByDeptId : function(deptId,callback){
+        repo.course.getCoursesByDeptId(deptId,function(err,data){
+            if(err === null && data !== false){
+                callback(data);
+            }else{
+                callback(err);
+            }
+        })
+    }
+    ,
+
     addResult : function(options={},callback){
         repo.result.addResult(options,function(err,data){
             if(err === null && data !== false){

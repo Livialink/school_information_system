@@ -26,12 +26,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/token',authR);
-app.use('/api/student',authorize.authorizeAdm,studentR);
+app.use('/api/student',authorize.authorizeUser,studentR);
 app.use('/api/user',authorize.authorizeUser,userR);
 app.use('/api/result',authorize.authorizeUser,resultR);
+/*app.get('/men',(req,res)=>{
+  let model = require('./models');
+        model.Student.findById(1).then(function(std){
+        model.Course.findById(1).then(function(cour){
+            std.addCourse(cour);
+        })
+        model.Course.findById(2).then(function(cour1){
+          std.addCourse(cour1);
+        })
+        model.Course.findById(3).then(function(cour2){
+          std.addCourse(cour2);
+        })});
+        res.json({full:'filled'});
+})*/
 
 app.use('*',(req,res)=>{
-  res.sendFile(path.join(__dirname + '/api_client/index.html'));
+  res.sendFile(path.join(__dirname + '/api-client/dist/index.html'));
 });
 
 // catch 404 and forward to error handler

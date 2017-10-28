@@ -58,11 +58,21 @@ let StudentRepository = function(){
     }
 
     let update = function(options={},callback){
-        model.Student.findById(options.id).then(user=>{
-            user.update({level : options.level}).then(function(std){
-                callback(null,std);
+        //callback(null,{user:'Livinus'});
+        
+        model.User.findById(options.id).then(user =>{
+            user.firstname = options.firstname;
+            user.lastname = options.lastname;
+            user.password = options.password;
+            user.phone = options.phone;
+            user.save().then(()=>
+            model.Student.findOne({where : {UserId : user.id}}).then(ustd=>{
+                ustd.update({level : options.level}).then(function(std){
+                    callback(null,{user: user, student: std});
+                }).catch(err => callback(err,false))
             }).catch(err => callback(err,false))
-        }).catch(err => callback(err,false));
+            ).catch(err => callback(err,false));
+        })
     };
 
     

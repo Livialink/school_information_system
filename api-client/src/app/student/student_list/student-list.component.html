@@ -1,0 +1,59 @@
+<div class="container">
+    <div [hidden]="getdetail">
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="level">Level</label>
+                        <select class="form-control" [(ngModel)]="selectedValue" #lev (change)="getStd(lev.value)" name="level">
+                            <option *ngFor="let lvl of levels" [value]="lvl">{{lvl}}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="selectedValue" class="table table-reponsive">
+                <table class="table">
+                    <tr>
+                        <th>name</th>
+                        <th>phone</th>
+                        <th>More</th>
+                    </tr>
+                    <tr *ngFor="let mode of model">
+                        <td>{{mode.firstname}} {{mode.lastname}}</td>
+                        <td>{{mode.phone}}</td>
+                        <td >
+                            <div class="btn-group">
+                                <a (click)="delete(mode)" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <a (click)="getDetails(mode)" class="btn btn-info"><i class="fa  fa-list"></i></a>
+                                <a (click)="update(mode.id)" class="btn btn-warning"><i class="fa  fa-edit"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div [hidden]="!getdetail">
+        <div class="row">
+            <div *ngIf="selectedValue" class="table table-reponsive">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h5>{{modelDetail.username}} details</h5>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><b>Name: </b>{{modelDetail.firstname}} {{modelDetail.lastname}}</li>
+                        <li class="list-group-item"><b>Email: </b>{{modelDetail.email}}</li>
+                        <li class="list-group-item"><b>Username: </b>{{modelDetail.username}}</li>
+                        <li class="list-group-item"><b>Phone: </b>{{modelDetail.phone}}</li>
+                        <li class="list-group-item"><b>Activated: </b>{{modelDetail.status}}</li>
+                        <li class="list-group-item"><b>Address: </b>{{modelDetail.address}}</li>
+                        <li class="list-group-item"><b>State: </b>{{modelDetail.state}}</li>
+                        <a class="btn btn-default" (click)="getdetail = !getdetail">Back</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

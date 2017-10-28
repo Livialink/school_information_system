@@ -14,7 +14,7 @@ let registerStdSchema  = {
         level : Joi.number().required(),
         date : Joi.date().required(),
         deptId : Joi.number(),
-        role : Joi.number().required()
+        role : Joi.string().required()
     }
 }
 let registerAdmSchema = {
@@ -31,7 +31,7 @@ let registerAdmSchema = {
 }
 
 let studentDelSchema = {
-    body : {
+    query : {
         id : Joi.number().min(1).required()
     }
 }
@@ -45,7 +45,11 @@ let stdListValidator = {
 let stdUpdValidator = {
     body : {
         id : Joi.number().min(0).required(),
-        level : Joi.number().min(100).max(700).required()
+        level : Joi.number().min(100).max(700).required(),
+        firstname : Joi.string().required(),
+        lastname : Joi.string().required(),
+        password : Joi.string().required(),
+        phone : Joi.number().required()
     }
 }
 

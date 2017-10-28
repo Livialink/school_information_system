@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="alert alert-danger" *ngIf="error" >username or username is incorret</div>
+    <div>
+        <div class="row">
+            <div class="col-md-3-offset col-md-6 pull-right">
+                <h1></h1>               
+                <form #loginForm="ngForm" (ngSubmit)="login()">
+                <div class="form-group">
+                    <label for="username">username</label>
+                    <input type="text" class="form-control" [(ngModel)]="loginModel.username"
+                    id="username" name="username" required #username="ngModel">
+                    <div [hidden]="username.valid" class="text-danger">
+                        username is required
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">password</label>
+                    <input type="password" class="form-control" [(ngModel)]="loginModel.password"
+                    id="password" name="password" required #password="ngModel">
+                    <div [hidden]="password.valid" class="text-danger">
+                        password is required
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid" >Submit</button>
+                <br/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/><br/>

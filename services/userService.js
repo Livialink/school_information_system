@@ -10,7 +10,16 @@ let User = {
             }
         })
     },
-
+    getRoleId : function(name,callback){
+        repo.user.getRoleId(name,function(err,data){
+            if(err === null && data !== false){
+                callback(data);
+            }else{
+                callback(err);
+            }
+        })
+    }
+    ,
     getAdmins : function(callback){
         repo.user.getAdmins(function(err,data){
             if(err === null && data !== false){
@@ -26,7 +35,7 @@ let User = {
             if(err === null && data !== false){
                 callback(data);
             }else{
-                callback({message : 'fsldfjl',error : err});
+                callback(err);
             }
         })
     }

@@ -16,15 +16,15 @@ module.exports = {
 
       model.Student.findById(1).then(function(std){
         model.Course.findById(1).then(function(cour){
-          //  std.addCourse(cour);
+            std.addCourse(cour);
         })
-        /*
+        
         model.Course.findById(2).then(function(cour1){
-          std.setCourse(cour1);
+          std.addCourse(cour1);
         })
-        model.Course.findById(2).then(function(cour2){
-          std.setCourse(cour2);
-        });*/
+        model.Course.findById(3).then(function(cour2){
+          std.addCourse(cour2);
+        });
       })
       
     ]);

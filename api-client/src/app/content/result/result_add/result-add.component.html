@@ -1,0 +1,43 @@
+
+<div class="container">
+ <div class="row">
+     <h2>{{model | json }}</h2>
+    <div class="col-md-3-offset col-md-6 pull-right">
+        <h2>Students results</h2>               
+        <form #fm="ngForm" (ngSubmit)="fm.form.valid && addResult()">
+            <div class="form-group">
+                <label for="cos">Course</label>
+                <select class="form-control" #cos="ngModel" [(ngModel)]="model.CourseId" #coss  name="coss" required >
+                    <option>--select--</option>
+                    <option *ngFor="let coss of courses" [value]="coss[0]">{{coss[1]}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="level">Level</label>
+                <select class="form-control" #level (change)="getStudents(level.value)"  name="level" required >
+                    <option>--select--</option>
+                    <option  *ngFor="let lvl of levels" [value]="lvl">{{lvl}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="semester">Semester</label>
+                <select class="form-control" #semester="ngModel" [(ngModel)]="model.semester"  name="semester" required >
+                    <option>--select--</option>
+                    <option *ngFor="let sem of semesters" [value]="sem">{{sem==1?'First':'Second'}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="student">Student</label>
+                <select class="form-control" #student="ngModel" [(ngModel)]="model.StudentId"  name="student" required >
+                    <option>--select--</option>
+                    <option *ngFor="let std of students" [value]="std.id">{{std.firstname}} {{ std.lastname}} ( {{std.username}} ) </option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="faculty">Score</label>
+                <input class="form-control" #score="ngModel" [(ngModel)]="model.score"  name="score" required >
+            </div>
+            <button type="submit" class="btn btn-warning" [disabled]="!fm.form.valid">Add</button>
+        </form>
+    </div>
+ </div>

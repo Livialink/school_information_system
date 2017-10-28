@@ -6,25 +6,36 @@ let Student = {
            if(err === null && data !== false){
                callback(data);
            }else{
-               callback(null);
+               callback(err);
            }
         });
     },
 
     addStudent : function(options={},callback){
-        repo.student.save(options,function(err,data){
-            if(err === null && data !== false){
-                callback(data);
+        repo.user.getRoleId(options.role,function(er,dat){
+           if(er === null && dat !== false){
+            options.role = dat;
+                repo.student.save(options,function(err,data){
+                    if(err === null && data !== false){
+                        callback(data);
+                    }else{
+                        callback(err);
+                    }
+                })
             }else{
-                callback(null);
+                callback(er);
             }
-        })
+        });
     },
 
     removeStudent : function(id,callback){
         repo.student.remove(id,function(err,data){
-            callback(data);
-        })   
+            if(err === null && data > 0){
+                callback(data);
+            }else{
+                callback(err);
+            }
+        })  
     },
 
     listStudent : function(queryObj,callback){

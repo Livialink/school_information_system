@@ -9,7 +9,8 @@ router.route('/').get(function(req,res){
     res.json({amara : 'She is mopping at the system'});
 });
 
-router.route('std/:id').get(function(req,res){
+router.route('/std/:id')
+.get(function(req,res){
     student.getStudent(req.params.id,function(user){
         res.json(user);
     })
@@ -22,7 +23,7 @@ router.route('/std')
     })
 })
 .delete(valid.stddelValidator,function(req,res){
-    student.removeStudent(req.body.id,function(data){
+    student.removeStudent(req.query.id,function(data){
         res.json(data);
     })
 })
@@ -32,9 +33,7 @@ router.route('/std')
     })
 })
 .patch(valid.stdUpdValidator,function(req,res){
-    student.updateStd({
-        id : req.body.id, 
-        level : req.body.level},function(data){
+    student.updateStd(req.body,function(data){
             res.json(data);
     })
 });

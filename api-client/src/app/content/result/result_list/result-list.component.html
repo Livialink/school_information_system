@@ -1,0 +1,39 @@
+
+<div class="container">
+ <div class="row">
+    <div class="col-md-3-offset col-md-6 pull-right">
+        <h2>Students results</h2>               
+        <form #fm="ngForm" (ngSubmit)="fm.form.valid">
+            <div class="form-group">
+                <label for="faculty">Select Course</label>
+                <select class="form-control" #coss (change)="getResults(coss.value)"  name="coss" >
+                    <option>--select--</option>
+                    <option #val *ngFor="let cos of courses" [value]="cos[0]">{{cos[1]}}</option>
+                </select>
+            </div>
+        </form>
+    </div>
+ </div>
+{{courseDetail | json }}
+<div class="row">
+    <h3>Result</h3>
+    <div class="col-md-6">
+        <div class="table table-responsive">
+            <table class="table">
+                <tr>
+                    <th>Semester</th>
+                    <th>score</th>
+                    <th>Name</th>
+                    <th>Reg Num</th>
+                </tr>                
+                <tr *ngFor="let cos of model">
+                    <td>{{cos.semester == 1 ?'First':'Second'}}</td>
+                    <td>{{cos.score}}</td>
+                    <td>{{cos.firstname}} {{cos.lastname}}</td>
+                    <td>{{cos.username}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
