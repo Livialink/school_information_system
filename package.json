@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "cd ./api-client && ng build && cd .. && node ./bin/www ",
+    "start": "node ./bin/www ",
     "dev": "nodemon ./bin/www",
-    "postinstall": "cd ./api-client && ng build && cd .."
+    "postinstall": "cd ./api-client && npm install && ng build && cd .."
   },
   "main": "./bin/www",
   "dependencies": {
