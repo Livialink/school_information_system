@@ -17,7 +17,7 @@ export class StudentAddComponent implements OnInit{
     levels : Array<number> = [100,200,300,400,500];
     registerModel : IRegisterStudent = new IRegisterStudent();
     faculties : string;
-    selectValue : number;
+    selectedValue : number;
     departments : string;
     alertt : string ;
     constructor(
