@@ -14,7 +14,8 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-
+    model.sequelize.sync({force : true});
+    
     return queryInterface.bulkInsert('Roles',[
       {
         name : 'user',
