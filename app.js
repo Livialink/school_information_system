@@ -74,6 +74,6 @@ app.use(function(err, req, res, next) {
 });
 
 //uncomment for the initial migration
-model.sequelize.sync({force : true});
+//model.sequelize.sync({force : true});
 
 module.exports = app;
