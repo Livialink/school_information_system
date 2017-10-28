@@ -8,6 +8,10 @@
     "postinstall": "cd ./api-client && npm install && ng build && cd .."
   },
   "main": "./bin/www",
+  "engines": {
+    "node" : "~8.6.0",
+    "npm" : "~5.4.2"
+  },
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
