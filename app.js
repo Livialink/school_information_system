@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'api-client/dist')));
 
 app.use('/api/token',authR);
 app.use('/api/student',authorize.authorizeUser,studentR);
@@ -45,7 +45,7 @@ app.use('/api/result',authorize.authorizeUser,resultR);
 })*/
 
 app.use('*',(req,res)=>{
-  res.sendFile(path.join(__dirname + '/api-client/dist/index.html'));
+  res.sendFile(path.join(__dirname,'api-client/dist/index.html'));
 });
 
 // catch 404 and forward to error handler
