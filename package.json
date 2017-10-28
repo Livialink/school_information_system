@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www ",
     "dev": "nodemon ./bin/www",
-    "postinstall": "cd ./api-client && npm install && ng build && cd .."
+    "postinstall": "cd ./api-client && npm install && ng build"
   },
   "main": "./bin/www",
   "engines": {
