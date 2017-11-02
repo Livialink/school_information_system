@@ -1,31 +1,49 @@
-
-<div class="container">
- <div class="row">
-    <div class="col-md-3-offset col-md-6 pull-right">
-        <h2>Students results</h2>               
+ <nav class="navbar navbar-dark livianav" >
+    <a class="navbar-brand" [routerLink]="['/home']">
+        SIS
+    </a>
+    <a [routerLink]="['/logout']" class="navbar pull-right logout">
+        Logout
+    </a>
+</nav>
+<br>
+<div class="container">        
+     <div class="row">         
+            <div class="col-md-12">
+                <div class="card liviacard">
+                    <div class="card-body">
+                        <div class="text-center cyan-text">
+                            <h3>Students' Result</h3>                           
+                        </div>                  
         <form #fm="ngForm" (ngSubmit)="fm.form.valid">
             <div class="form-group">
-                <label for="faculty">Select Course</label>
+                <div class="has-float-label">
+                
                 <select class="form-control" #coss (change)="getResults(coss.value)"  name="coss" >
                     <option>--select--</option>
                     <option #val *ngFor="let cos of courses" [value]="cos[0]">{{cos[1]}}</option>
                 </select>
+                <label for="faculty">Select Course</label>
+                </div>
             </div>
         </form>
     </div>
  </div>
-{{courseDetail | json }}
 <div class="row">
-    <h3>Result</h3>
-    <div class="col-md-6">
-        <div class="table table-responsive">
-            <table class="table">
-                <tr>
+    <div class="col-md-12">
+        <p class="bg-default">Course: {{courseDetail.name}} Course code: {{courseDetail.code}} Credit unit {{ courseDetail.unit }}</p>
+    </div>
+</div>
+<div class="row ">    
+    <div class="col-md-12">
+        <div class="table table-responsive liviacard">
+            <table class="table text-left">
+                <thead>
                     <th>Semester</th>
                     <th>score</th>
                     <th>Name</th>
                     <th>Reg Num</th>
-                </tr>                
+                </thead>                
                 <tr *ngFor="let cos of model">
                     <td>{{cos.semester == 1 ?'First':'Second'}}</td>
                     <td>{{cos.score}}</td>
@@ -37,3 +55,6 @@
     </div>
 </div>
 </div>
+     </div>
+</div>
+    

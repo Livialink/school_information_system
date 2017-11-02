@@ -32,7 +32,9 @@ export class StudentAddComponent implements OnInit{
         this.sch.getFaculties().subscribe(result =>{
             let fac = result.map((res) => {return [res.name,res.id]});
             this.faculties = fac;
-        })
+        });
+        //this.levels = [100,200,300,400,500];
+        //this.registerModel  = new IRegisterStudent();
     }
     
     getDept(id : number){

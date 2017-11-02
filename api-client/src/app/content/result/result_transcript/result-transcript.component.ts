@@ -14,7 +14,7 @@ export class ResultTranscriptComponent implements OnInit{
     students : Array<any>;
     
     ngOnInit(): void {
-        throw new Error("Method not implemented.");
+        //throw new Error("Method not implemented.");
     }
 
 }

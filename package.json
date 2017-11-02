@@ -9,8 +9,8 @@
   },
   "main": "./bin/www",
   "engines": {
-    "node" : "~8.6.0",
-    "npm" : "~5.4.2"
+    "node": "~8.6.0",
+    "npm": "~5.4.2"
   },
   "dependencies": {
     "body-parser": "~1.18.2",

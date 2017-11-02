@@ -1,104 +1,141 @@
+<nav class="navbar navbar-dark livianav" >
+    <a class="navbar-brand" [routerLink]="['/home']">
+        SIS
+    </a>
+    <a [routerLink]="['/logout']" class="navbar pull-right logout">
+        Logout
+    </a>
+</nav>
+<br>
 <div class="container">
-    <br/><br/>
-    {{ alertt }}
-     <div class="row">
-            <div class="col-md-3-offset col-md-6 pull-right">
-                <h2>Student Registeration Form</h2>               
-                <form #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && register()">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mb-r">            
+            <div class="card liviacard">
+                <div class="card-body">
+                    <div class="text-center cyan-text">
+                        <h3><i class="fa fa-lock cyan-text"></i>Add student</h3>
+                        <hr class="my-4">
+                    </div>
+                    <form #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && register()">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" [(ngModel)]="registerModel.username"
+                    <div class="has-float-label">
+                    <input type="text" class="form-control" placeholder="Username" [(ngModel)]="registerModel.username"
                     id="username" name="username" required #username="ngModel">
+                    <label for="username">Enter Username</label>
                     <div *ngIf="registerForm.submitted && !username.valid" class="text-danger">
                         username is required
                     </div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" [(ngModel)]="registerModel.email"
+                    <div class="has-float-label">                    
+                    <input type="email" class="form-control" placeholder="email" [(ngModel)]="registerModel.email"
                     id="email" name="email" required #email="ngModel">
+                    <label for="email">Enter Email</label>
+                    </div>
                     <div *ngIf="registerForm.submitted && !email.valid" class="text-danger">
                         Email is required
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password">password</label>
-                    <input type="text" class="form-control" [(ngModel)]="registerModel.password"
+                    <div class="has-float-label">
+                    <input type="text" class="form-control" placeholder="Password" [(ngModel)]="registerModel.password"
                     id="password" name="password" required #password="ngModel">
+                    <label for="password">Password</label>
                     <div *ngIf="registerForm.submitted && !password.valid" class="text-danger">
                         password is required
                     </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">phone</label>
+                    <div class="has-float-label">
                     <input type="tel" class="form-control" required 
-                    [(ngModel)]="registerModel.phone" name="phone" id="phone" #phone="ngModel">
+                    [(ngModel)]="registerModel.phone" placeholder="phone" name="phone" id="phone" #phone="ngModel">
+                    <label for="phone">Phone</label>
                     <div *ngIf="registerForm.submitted && !phone.valid" class="text-danger">
                         phone is required
                     </div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="address">address</label>
+                    <div class="has-float-label">
                     <input type="text" class="form-control" required 
-                    [(ngModel)]="registerModel.address" name="address" id="address" #address="ngModel">
+                    [(ngModel)]="registerModel.address" placeholder="address" name="address" id="address" #address="ngModel">
+                    <label for="address">Address</label>
                     <div *ngIf="registerForm.submitted && !address.valid" class="text-danger">
                         address is required
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="firstname">firstname</label>
-                    <input type="text" class="form-control" required 
-                    [(ngModel)]="registerModel.firstname" name="firstname" id="firstname" #firstname="ngModel">
-                    <div *ngIf="registerForm.submitted && !firstname.valid" class="text-danger">
-                        firstname is required
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="lastname">lastname</label>
+                    <div class="has-float-label">
                     <input type="text" class="form-control" required 
-                    [(ngModel)]="registerModel.lastname" name="lastname" id="lastname" #lastname="ngModel">
+                    [(ngModel)]="registerModel.firstname" placeholder="firstname" name="firstname" id="firstname" #firstname="ngModel">
+                    <label for="firstname">firstname</label>
+                    <div *ngIf="registerForm.submitted && !firstname.valid" class="text-danger">
+                        firstname is required
+                    </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="has-float-label">
+                    <input type="text" class="form-control" required 
+                    [(ngModel)]="registerModel.lastname" placeholder="lastname" name="lastname" id="lastname" #lastname="ngModel">
+                    <label for="lastname">Lastname</label>
+                    </div>
                     <div *ngIf="registerForm.submitted && !lastname.valid " class="text-danger">
                         lastname is required
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="state">state</label>
-                    <input type="text" class="form-control" required 
-                    [(ngModel)]="registerModel.state" name="state" id="state" #state="ngModel">
-                    <div *ngIf="registerForm.submitted && !state.valid" class="text-danger">
-                        state is required
+                    <div class="has-float-label">
+                        <input type="text" class="form-control" required 
+                        [(ngModel)]="registerModel.state" placeholder="State" name="state" id="state" #state="ngModel">
+                        <label for="state">state</label>
+                        <div *ngIf="registerForm.submitted && !state.valid" class="text-danger">
+                            state is required
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="level">level</label>
-                    <select class="form-control"  [(ngModel)]="registerModel.level" name="level" >
-                        <option *ngFor="let lvl of levels" [value]="lvl">{{lvl}}</option>
-                    </select>
+                    <div class="has-float-label">
+                        <select class="form-control" id="level"  [(ngModel)]="registerModel.level" name="level" >
+                            <option *ngFor="let lvl of levels" [value]="lvl">{{lvl}}</option>
+                        </select>
+                        <label for="level">level</label>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="faculty">Faculty</label>
-                    <select class="form-control" #fac (change)="getDept(fac.value)" [(ngModel)]="selectedValue"  name="faculty" >
+                    <div class="has-float-label">
+                    <select class="form-control" id="faculty" placeholder="faculty" #fac (change)="getDept(fac.value)" [(ngModel)]="selectedValue"  name="faculty" >
                         <option #val *ngFor="let fac of faculties" [value]="fac[1]">{{fac[0]}}</option>
                     </select>
+                    <label for="faculty">Faculty</label>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="deptId">department</label>
+                    <div class="has-float-label">
                     <select class="form-control" #department="ngModel" id="deptId" name="deptId" [(ngModel)]="registerModel.deptId">
                         <option *ngFor="let dept of departments" [value]="dept[2]">{{ dept[0] }}({{dept[1]}})</option>                            
                     </select>
+                    <label for="deptId">department</label>
                     <div *ngIf="registerForm.submitted && !department.valid" class="text-danger">
                         department is required
                     </div>
+                    </div>
                 </div>
-                <button class="btn btn-primary">Register</button>
-                </form>
+                    <div class="text-center">
+                        <button class="btn btn-info waves-effect waves-light">Add Student</button>
+                    </div>
+                </form>                
+                </div>
             </div>
         </div>
+    </div>
 </div>
-
-<br/><br/><br/>

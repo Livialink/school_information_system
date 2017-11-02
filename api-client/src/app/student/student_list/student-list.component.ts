@@ -8,7 +8,7 @@ import  swal  from 'sweetalert2';
 @Component({
     selector : 'app-student-list',
     templateUrl : 'student-list.component.html',
-    styleUrls : ['student-list.component.scss'],
+    styleUrls : ['student-list.component.css'],
     providers : [schoolService,StudentService]
 
 })

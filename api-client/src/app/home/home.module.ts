@@ -7,10 +7,10 @@ import { AuthGuard } from '../core/services/auth.guard';
 @NgModule({
     imports : [
         SharedModule,
-        HomeRoutingModule
+        HomeRoutingModule,        
     ],
     declarations : [ HomeComponent],
-    providers : [AuthGuard]
+   // providers : [AuthGuard]
 })
 
 export class HomeModule{}

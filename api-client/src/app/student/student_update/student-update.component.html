@@ -1,55 +1,82 @@
+<nav class="navbar navbar-dark livianav" >
+    <a class="navbar-brand" [routerLink]="['/home']">
+        SIS
+    </a>
+    <a [routerLink]="['/logout']" class="navbar pull-right logout">
+        Logout
+    </a>
+</nav>
+<br>
 <div class="container">
     <br/><br/>
     {{ alert }}
     <div [hidden]="updated">
      <div class="row">
-            <div class="col-md-3-offset col-md-6 pull-right">
-                <h2>Student Update Form</h2>               
-                <form #fm="ngForm" (ngSubmit)="fm.form.valid && update()">
-                <div class="form-group">
-                    <label for="firstname">Firstname</label>
-                    <input type="text" class="form-control" [(ngModel)]="model.firstname"
-                    id="firstname" name="firstname" required #firstname="ngModel">
-                    <div *ngIf="fm.submitted && !firstname.valid" class="text-danger">
-                        firstname is required
+         <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card liviacard">
+                    <div class="card-body">
+                        <div class="text-center cyan-text">
+                            <h3>Student update Form</h3>
+                            <hr class="my-4">
+                        </div>                
+                    <form #fm="ngForm" (ngSubmit)="fm.form.valid && update()">
+                    <div class="form-group">
+                        <div class="has-float-label">                        
+                        <input type="text" class="form-control" [(ngModel)]="model.firstname"
+                        id="firstname" name="firstname" placeholder="firstname" required #firstname="ngModel">
+                        <label for="firstname">Firstname</label>
+                        <div *ngIf="fm.submitted && !firstname.valid" class="text-danger">
+                            firstname is required
+                        </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="lastname">lastname</label>
-                    <input type="lastname" class="form-control" [(ngModel)]="model.lastname"
-                    id="lastname" name="lastname" required #lastname="ngModel">
-                    <div *ngIf="fm.submitted && !lastname.valid" class="text-danger">
-                        lastname is required
+                    <div class="form-group">
+                        <div class="has-float-label">
+                        <input type="text" class="form-control" [(ngModel)]="model.lastname"
+                        id="lastname" name="lastname" placeholder="lastname" required #lastname="ngModel">
+                        <label for="lastname">lastname</label>
+                        <div *ngIf="fm.submitted && !lastname.valid" class="text-danger">
+                            lastname is required
+                        </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="password">password</label>
-                    <input type="text" class="form-control" [(ngModel)]="model.password"
-                    id="password" name="password" required #password="ngModel">
-                    <div *ngIf="fm.submitted && !password.valid" class="text-danger">
-                        password is required
+                    <div class="form-group">
+                        <div class="has-float-label">
+                        <input type="text" class="form-control" [(ngModel)]="model.password"
+                        id="password" name="password" placeholder="password" required #password="ngModel">
+                        <label for="password">password</label>
+                        <div *ngIf="fm.submitted && !password.valid" class="text-danger">
+                            password is required
+                        </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">phone</label>
-                    <input type="tel" class="form-control" required 
-                    [(ngModel)]="model.phone" name="phone" id="phone" #phone="ngModel">
-                    <div *ngIf="fm.submitted && !phone.valid" class="text-danger">
-                        phone is required
+                    <div class="form-group">
+                        <div class="has-float-label">
+                        <label for="phone">phone</label>
+                        <input type="tel" class="form-control" required 
+                        [(ngModel)]="model.phone" placeholder="phone" name="phone" id="phone" #phone="ngModel">
+                        <div *ngIf="fm.submitted && !phone.valid" class="text-danger">
+                            phone is required
+                        </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="address">Level</label>
-                    <select class="form-control" [(ngModel)]="model.level" #lev="ngModel" name="level" >
-                        <option *ngFor="let lvl of levels" [value]="lvl">{{lvl}}</option>
-                    </select>
-                    <div *ngIf="fm.submitted && !lev.valid" class="text-danger">
-                        Level is required
+                    <div class="form-group">
+                        <div class="has-float-label">
+                        <label for="address">Level</label>
+                        <select class="form-control" placeholder="lvl" [(ngModel)]="model.level" #lev="ngModel" name="level" >
+                            <option *ngFor="let lvl of levels" [value]="lvl">{{lvl}}</option>
+                        </select>
+                        <div *ngIf="fm.submitted && !lev.valid" class="text-danger">
+                            Level is required
+                        </div>
+                        </div>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-primary" [disabled]="!fm.form.valid">Update</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!fm.form.valid">Update</button>
+                    
                 </form>
+            </div>
+                </div>
             </div>
      </div>
     </div>

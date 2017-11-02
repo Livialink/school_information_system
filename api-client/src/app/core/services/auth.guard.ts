@@ -11,9 +11,10 @@ export class AuthGuard implements CanActivate{
     canActivate(route: ActivatedRouteSnapshot, state : RouterStateSnapshot){
         if(localStorage.getItem('jwt')){
             return true;
+        }else{
+            this.router.navigate(['/login'],{ queryParams : { returnUrl : state.url }});
+            return false;
         }
-        this.router.navigate(['/login'],{ queryParams : { returnUrl : state.url }});
-        return false;
     }
 
 }

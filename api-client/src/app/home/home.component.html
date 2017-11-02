@@ -1,6 +1,54 @@
-<h1>Welcome</h1>
-<h2>To Our Proposed</h2>
-<h1>HomePage</h1>
-<ul class="list-group">
-    <li class="list-item" *ngFor="let std of model">{{std.firstname}}</li>
-</ul>
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">Livialinks SIS</h3>
+          <nav class="nav nav-masthead">
+            <a class="nav-link nav-social" href="https://github.com/Livialink/school_information_system.git"><i class="fa fa-github" aria-hidden="true"></i></a>
+            <a class="nav-link nav-social" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          </nav>
+        </div>
+      </div><br>      <div class="inner cover">
+        <h1 class="cover-heading">Welcome to Future</h1>
+        <p class="lead cover-copy">Hold tight as we get you through our robust technology.</p>
+        <p class="lead"><button type="button" class="btn btn-lg btn-default btn-notify" data-toggle="modal" data-target="#subscribeModal">Login Now</button></p>
+      </div>
+      <div class="mastfoot">
+        <div class="inner">
+          <p>&copy; Umeaduma Livinus. Source code   <a href="https://github.com/LiviaLink/school_information_system.git" target="_blank"><i class="fa fa-github fa-lg"></i></a></p>
+        </div>
+      </div>
+      <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="subscribeModalLabel">Login:</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                    <div class="has-float-label">
+                        <input type="text" class="form-control" id="email" placeholder="your-name@example.com">
+                        <label for="email">Enter your email</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="has-float-label">
+                        <input type="password" class="form-control" id="email" placeholder="password">
+                        <label for="email">Password</label>
+                    </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default">Login</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

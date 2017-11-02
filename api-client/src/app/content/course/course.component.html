@@ -1,45 +1,65 @@
-<h1>Present</h1>
-<div class="container">
- <div class="row">
-    <div class="col-md-3-offset col-md-6 pull-right">
-        <h2>Student Course Form</h2>               
+ <nav class="navbar navbar-dark livianav" >
+    <a class="navbar-brand" [routerLink]="['/home']">
+        SIS
+    </a>
+    <a [routerLink]="['/logout']" class="navbar pull-right logout">
+        Logout
+    </a>
+</nav>
+<br>
+<div class="container">        
+     <div class="row">         
+            <div class="col-md-12">
+                <div class="card liviacard">
+                    <div class="card-body">
+                        <div class="text-center cyan-text">
+                            <h3>Course Allocation List</h3>                           
+                        </div>                     
         <form #fm="ngForm" (ngSubmit)="fm.form.valid">
             <div class="form-group">
-                <label for="faculty">Faculty</label>
+                <div class="has-float-label">                
                 <select class="form-control" #fac (change)="getDept(fac.value)"  name="faculty" >
                     <option>--select--</option>
                     <option #val *ngFor="let fac of faculties" [value]="fac[0]">{{fac[1]}}</option>
                 </select>
+                <label for="faculty">Faculty</label>
+                </div>
             </div>
             <div class="form-group">
-                <label for="deptId">department</label>
+                <div class="has-float-label">                
                 <select class="form-control" #department id="deptId" (change)="getCourse(department.value)" name="deptId" >
                     <option>--select--</option>
                     <option *ngFor="let dept of departments" [value]="dept[0]">{{dept[1]}}</option>                            
                 </select>
+                <label for="deptId">department</label>
                 <div *ngIf="fm.submitted && !department.valid" class="text-danger">
                     department is required
                 </div>
+                </div>
             </div>
             <div class="form-group">
-                <label for="course">Course</label>
+                <div class="has-float-label">                
                 <select class="form-control" #course (change)="enrollments(course.value)"  name="course" >
                     <option>--select--</option>
                     <option #val *ngFor="let cos of courses" [value]="cos[0]">{{cos[1]}}</option>
                 </select>
+                <label for="course">Course</label>
+                </div>
             </div>
         </form>
+            </div>
+        </div>
     </div>
  </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="table table-responsive">
-            <table class="table">
-                <tr>
+            <table class="table liviacard text-left">
+                <thead>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Action</th>
-                </tr>
+                </thead>
                 <tr *ngFor="let user of model">
                     <td>{{user.firstname}}</td>
                     <td>{{user.phone}}</td>

@@ -1,0 +1,76 @@
+<nav class="navbar navbar-dark livianav" >
+    <a class="navbar-brand" [routerLink]="['/home']">
+        SIS
+    </a>
+    <a [routerLink]="['/logout']" class="navbar pull-right logout">
+        Logout
+    </a>
+</nav>
+<br>
+<div class="site-wrapper container">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <a [routerLink]="['/student/list']">
+                <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">List Students</h2>
+                </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a [routerLink]="['/student/add']" >
+                <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Add Student</h2>
+                </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+            <a [routerLink]="['/course-list']">
+                <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">List Course</h2>
+                    
+                </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a [routerLink]="['/result-add']" >
+                <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Add Result</h2>
+                </div>
+                </div>
+            </a>
+        </div>
+    </div>
+<br>
+    <div class="row">
+        <div class="col-sm-6">
+            <a [routerLink]="['/result-list']">
+                <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">List Result</h2>
+                    
+                </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a [routerLink]="['/result-stat']" >
+                <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Transcript</h2>
+                </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

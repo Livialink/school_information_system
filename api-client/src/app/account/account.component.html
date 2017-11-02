@@ -1,31 +1,72 @@
-<div class="container">
-    <div class="alert alert-danger" *ngIf="error" >username or username is incorret</div>
-    <div>
-        <div class="row">
-            <div class="col-md-3-offset col-md-6 pull-right">
-                <h1></h1>               
-                <form #loginForm="ngForm" (ngSubmit)="login()">
-                <div class="form-group">
-                    <label for="username">username</label>
-                    <input type="text" class="form-control" [(ngModel)]="loginModel.username"
-                    id="username" name="username" required #username="ngModel">
-                    <div [hidden]="username.valid" class="text-danger">
-                        username is required
-                    </div>
+<div class="site-wrapper">
+    <div class="panel" id="subscribeModal">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="subscribeModalLabel">Login</h5>
                 </div>
-                <div class="form-group">
-                    <label for="password">password</label>
-                    <input type="password" class="form-control" [(ngModel)]="loginModel.password"
-                    id="password" name="password" required #password="ngModel">
-                    <div [hidden]="password.valid" class="text-danger">
-                        password is required
+                <div class="modal-body">
+                <form #fm="ngForm">
+                    <div class="form-group">
+                        <div class="has-float-label">
+                            <input type="text" class="form-control" id="username" name="username" 
+                             #username="ngModel" placeholder="enter your username" 
+                             [(ngModel)]="loginModel.username" required>
+                            <label for="username">Enter your email</label>
+                        </div>
+                        <div *ngIf="fm.submitted && !username.valid" class="text-danger">
+                                username is required
+                        </div>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid" >Submit</button>
-                <br/>
+                    <div class="form-group">
+                        <div class="has-float-label">
+                            <input type="password" class="form-control" [(ngModel)]="loginModel.password"
+                             id="password" name="password" #password="ngModel" placeholder="password" required>
+                            <label for="password">Password</label>
+                        </div>
+                        <div *ngIf="fm.submitted && !password.valid" class="text-danger">
+                                password is required
+                            </div>
+                    </div>
                 </form>
+                </div>
+                <div class="modal-footer">
+                <button type="submit" class="btn btn-defaul" (click)="login()" [disabled]="!fm.form.valid">Login</button>
+                </div>
+            
             </div>
-        </div>
+            </div>
     </div>
 </div>
-<br/><br/><br/>
+<!--
+<div class="container">
+    <div class="alert alert-danger" *ngIf="error" >username or username is incorret</div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-body">
+                        <form #fm="ngForm" (ngSubmit)="login()" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="username">username</label>
+                            <input type="text" class="form-control" [(ngModel)]="loginModel.username"
+                            id="username" name="username" required #username="ngModel">
+                            <div *ngIf="fm.submitted && !username.valid" class="text-danger">
+                                username is required
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">password</label>
+                            <input type="password" class="form-control" [(ngModel)]="loginModel.password"
+                            id="password" name="password" required #password="ngModel">
+                            <div *ngIf="fm.submitted && !password.valid" class="text-danger">
+                                password is required
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success" [disabled]="!fm.form.valid" >Submit</button>
+                        <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>-->

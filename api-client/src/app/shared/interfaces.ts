@@ -1,18 +1,15 @@
 export class IRegisterAdmin {
-    constructor(
-        public username : string,
-        public email : string,
-        public password : string,
-        public phone : number,
-        public address : string,
-        public firstname : string,
-        public lastname : string,
-        public state : string
-    ){}
+    public username : string;
+    public email : string;
+    public password : string;
+    public phone : number;
+    public address : string;
+    public firstname : string;
+    public lastname : string;
+    public state : string;
 }
 
 export class IRegisterStudent {
-    //constructor(
     public username : string;
     public email : string;
     public password : string;
@@ -24,19 +21,16 @@ export class IRegisterStudent {
     public level : number;
     public date : Date;
     public deptId : number;
-    public role : string;   
-    //){}
+    public role : string;    
 }
 
 export class IUpdateStudent{
-    //constructor(
-        public id : number;
-        public level : number;
-        public firstname : string;
-        public password : string;
-        public lastname : string;
-        public phone : number;
-    //){}
+    public id : number;
+    public level : number;
+    public firstname : string;
+    public password : string;
+    public lastname : string;
+    public phone : number;
 }
 
 export class IAddResult {
@@ -60,5 +54,4 @@ export class IEnroll {
 
     public stdId : number;
     public cosIds : Array<number>;
-
 }
