@@ -1,6 +1,11 @@
 # School Information System
 >### A school information system project for Andela Learning community (ACL 2.0) Developed by Umeaduma Livinus
 
+
+## Login Detail
+- username : livinus
+- password : 12345
+
 # Getting started
 
 To get the node server running locally:
@@ -19,3 +24,5 @@ To get the node server running locally:
 ## Application structure
 
 ## Authentication
+
+
