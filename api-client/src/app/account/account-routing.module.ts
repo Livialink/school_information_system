@@ -4,7 +4,7 @@ import { AccountComponent } from './account.component';
 
 const routes : Routes = [
     { path : 'login', component : AccountComponent, data : { animation : 'login'} },
-    /*{ path : 'account', pathMatch : 'full', redirectTo : '/login'}*/
+    { path : 'logout',component : AccountComponent, data : { animation : 'logout'}}
 ];
 
 @NgModule({

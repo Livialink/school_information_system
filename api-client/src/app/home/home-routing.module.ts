@@ -4,7 +4,7 @@ import { HomeComponent } from './home.component';
 import { AuthGuard } from '../core/services/auth.guard';
 
 const home : Routes = [
-    { path : 'home', component : HomeComponent, data : { animation : 'home'} , canActivate : [AuthGuard]}
+    { path : 'home', component : HomeComponent, data : { animation : 'home'}}
 ];
 
 @NgModule({
